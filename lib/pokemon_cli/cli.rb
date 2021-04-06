@@ -2,7 +2,10 @@ class CLI
 
     def start
         puts "Greetings and welcome to the all knowing Pokemon database, Pokeapi! Who do we owe the pleasure of meeting today (AKA please enter your name to get started)?"
-        input = user_input
+            API.get_data
+            input = user_input
+            greet(input)
+
 
     end
 
@@ -11,24 +14,23 @@ class CLI
     end
 
     def greet(name)
-        puts "So #{name}, which Pokemon would you like get more familiar with?"
-        menu
+        puts "So #{name}, which Generation of Pokemon would you like learn more about? 
+        Please enter 1-8 generation. If you need to leave, press E to exit"
     end
 
-    def menu
+    def generation
         selection = user_input
-        if selection == "y"
+        if selection == "1"
 
         elsif selection == "exit"
             goodbye
         else 
             invalid
-    
         end
     end
 
         def goodbye
-            puts "We hope you are more familiar with the Pokemon, please come back and visit us again soon! "
+            puts "We hope you can  come back and visit us again soon! "
         end
 
         def invalid
@@ -36,7 +38,7 @@ class CLI
             menu
         end
 
-        def pokemon_choice
+        def choice_of_generation
 
         end
 
@@ -44,9 +46,6 @@ class CLI
             puts "#{pokemon}"
         end
 
-
-
-    end
 
 
 
