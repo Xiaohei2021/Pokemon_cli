@@ -12,6 +12,7 @@ class CLI
 
     def greet(name)
         puts "So #{name}, which Pokemon would you like get more familiar with?"
+        menu
     end
 
     def menu
@@ -19,17 +20,28 @@ class CLI
         if selection == "y"
 
         elsif selection == "exit"
-
+            goodbye
         else 
-
+            invalid
+    
         end
+    end
 
         def goodbye
             puts "We hope you are more familiar with the Pokemon, please come back and visit us again soon! "
         end
 
         def invalid
-            puts "We can't see the Pokemon, Please check your spelling and try again "
+            puts "We can't seem to find the Pokemon, Please check your spelling and try again "
+            menu
+        end
+
+        def pokemon_choice
+
+        end
+
+        def pokemon_details(pokemon)
+            puts "#{pokemon}"
         end
 
 
