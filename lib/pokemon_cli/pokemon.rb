@@ -1,10 +1,17 @@
 class Pokemon 
-
-    attr_accessor 
+    @@all
+    attr_accessor :name
 
     def initialize
 
     end
-    
+
+    def save
+        @@all << self
+    end
+
+    def self.all
+        @@all
+    end
 
 end
