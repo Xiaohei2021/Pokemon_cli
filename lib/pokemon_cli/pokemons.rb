@@ -5,7 +5,8 @@ class Pokemons
     def initialize(name, national_dex_entry_number, egg_groups, growth_rate)
         @name =  pokemon_species
         @dex_entry = national_dex_entry_number
-        @egg_group = egg_groups, growth_rate
+        @egg_group = egg_groups
+        @growth = growth_rate
     end
 
     def save

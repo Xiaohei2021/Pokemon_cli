@@ -1,11 +1,16 @@
 class P_Generation
     @@all = []
-    attr_accessor :abilities, :pokemon_species, version_groups
-
-    def initialize(abilities, pokemon_species, version_groups)
-        @abilities = abilities
-        @pokemon= pokemon_species
-        @versions= version_groups
+    attr_accessor :abilities, :pokemon_species, :version_groups
+   
+    
+    def initialize(data_hash) # abilities, pokemon_species, version_groups
+        data_hash.each do |key, value|
+            self.send("#{key}=", value) if self.respond_to?("#{key}=")
+        end
+        # @abilities = abilities
+        # @pokemon= pokemon_species
+        # @versions= version_groups
+        save
     end
 
     def save
