@@ -33,7 +33,7 @@ class CLI
     end
 
     def goodbye
-        puts "You must be busy to leave us so soon, come back and visit us again soon! "
+        puts "You must be busy to be leaving us so soon, come back and visit us again anytime! "
     end
 
     def invalid
@@ -67,14 +67,40 @@ class CLI
 
 
     def select_generation 
+        puts "which Pokemon or Pokemon moves would you like to learn more about?"
+
         selection = user_input
-        if selection == "5"
-            generation_detail
-        elsif selection == "e"
+        
+        case selection
+        when selection == 1
+
+        when selection == 2
+
+        when selection == 3
+
+        when selection == 4
+
+        when selection == 5
+
+        when selection == 6
+
+        when selection == 7
+
+        when selection == 8
+
+        when selection == "e"
             goodbye
         else 
             invalid2
         end
+
+        # if selection == "5"
+        #     generation_detail
+        # elsif selection == "e"
+        #     goodbye
+        # else 
+        #     invalid2
+        # end
     end
 
         def invalid2
@@ -87,17 +113,7 @@ class CLI
         # def goodbye
         #     puts "We hope you have become more familiar with the world of Pokemon, come back and visit us again soon! "
         # end
-        
-        
-
-        # def greet(name)
-        #     puts "So #{name}, do you have a favorite generation of Pokemon? know which Generation your favorite pokemon or favorite pokemon was born from?
-            
-        #     of Pokemon or Pokemon moves would you like learn more about? 
-        #     Please enter 1-8 generation. If you need to leave, press E to exit"
-        # end
        
-
         # def invalid
         #     puts "We can't seem to find the Pokemon, Please check your spelling and try again "
         #     menu
