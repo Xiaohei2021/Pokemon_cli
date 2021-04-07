@@ -1,6 +1,6 @@
 class P_Generation
     @@all = []
-    attr_accessor :abilities, :pokemon_species, :version_groups
+    attr_accessor :moves, :pokemon_species, :version_groups
    
     
     def initialize(data_hash) # abilities, pokemon_species, version_groups

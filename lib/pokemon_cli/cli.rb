@@ -2,8 +2,9 @@ class CLI
 
     def start
         puts "Greetings and welcome to the all knowing Pokemon database, Pokeapi! Who do we owe the pleasure of meeting today (AKA please enter your name to get started)?"
-            # API.get_generation
+           
             input = user_input
+
             greet(input)
 
 
@@ -52,42 +53,27 @@ class CLI
         select_generation
     end
 
-    def pokemon_generations
-            generations = ["Generation 1","Generation 2","Generation 3","Generation 4","Generation 5",
-            "Generation 6","Generation 7","Generation 8"]
-            puts "Thats perfectly fine. Which Pokemon generaration would you like to get familiar with?
-             Please enter a Pokemon Generation, enter integer 1-8
-             If you wish to leave at any time, enter 'e' to exit."
-            generations.each.with_index(1) do |generation, index|
-                puts "#{index}. #{generation}"
-            end
-            select_generation
-        end
+    # def pokemon_generations
+    #         generations = ["Generation 1","Generation 2","Generation 3","Generation 4","Generation 5",
+    #         "Generation 6","Generation 7","Generation 8"]
+    #         puts "Thats perfectly fine. Which Pokemon generaration would you like to get familiar with?
+    #          Please enter a Pokemon Generation, enter integer 1-8
+    #          If you wish to leave at any time, enter 'e' to exit."
+    #         generations.each.with_index(1) do |generation, index|
+    #             puts "#{index}. #{generation}"
+    #         end
+    #         select_generation
+    #     end
     
 
 
     def select_generation 
         puts "which Pokemon or Pokemon moves would you like to learn more about?"
-
+        API.get_generationx(user_selection)
         selection = user_input
         
         case selection
-        when selection == 1
-
-        when selection == 2
-
-        when selection == 3
-
-        when selection == 4
-
-        when selection == 5
-
-        when selection == 6
-
-        when selection == 7
-
-        when selection == 8
-
+      
         when selection == "e"
             goodbye
         else 
@@ -109,6 +95,13 @@ class CLI
             select_generation
         end
 
+
+        def print_generation_data
+            P_Generation.all.each_with_index(1) do |data, index|
+                puts "#{index}. #{data}"   
+            end
+
+        end
 
         # def goodbye
         #     puts "We hope you have become more familiar with the world of Pokemon, come back and visit us again soon! "
