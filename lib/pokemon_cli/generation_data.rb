@@ -21,9 +21,9 @@ class Generation_Data
         @@all
     end
     
-    def self.find_by_selection()
-        self.all.detect
-    end
+    # def self.find_by_selection()
+    #     self.all.detect
+    # end
     
     
 end
