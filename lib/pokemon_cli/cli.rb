@@ -31,15 +31,14 @@ class CLI
     def get_pokemon
 
        
-        puts "please enter integer 1-8 for the corresponding generation. 
-        If you need to leave at any time, enter 'e' to exit" 
+        puts "please enter integer 1-8 for the corresponding generation.  If you need to leave at any time, enter 'e' to exit" 
         
         input = user_input
         API.get_generationx(input)  
         
         print_generation_data
         
-        user_menu
+        # user_menu
         # selected_generation
 
     end
