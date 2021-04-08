@@ -14,30 +14,31 @@ class API
 
     def self.get_generation
         response = RestClient.get ("https://pokeapi.co/api/v2/generation/")
-        generation = JSON.parse(response)["results"]
+        gen_list = JSON.parse(response)["results"]
+        gen_list.each do |gen_count|
+            P_Generation.new(gen_count["name"])    
+        end
+        # binding.pry
+
+    end
+
+    def self.get_generationx(input)
+        x = input
+        response = RestClient.get ("https://pokeapi.co/api/v2/generation/#{x}/")
+        generation = JSON.parse(response)
+
+        # generation = giant hash 
+        # {"abilities"=>[],
+        # "id"=>1,
+        # "main_region"=>{"name"=>"kanto", "url"=>"https://pokeapi.co/api/v2/region/1/"},
+        # "moves"=>[{"name"=>"pound", "url"=>"https://pokeapi.co/api/v2/move/1/"}...
+        # }
+
         generation.each do |data|
-            P_Generation.new(data)
+            P_Generation.new()
         end
         binding.pry
     end
-
-    # def self.get_generationx(input)
-    #     x = input
-    #     response = RestClient.get ("https://pokeapi.co/api/v2/generation/#{x}/")
-    #     generation = JSON.parse(response)
-
-    #     # generation = giant hash 
-    #     # {"abilities"=>[],
-    #     # "id"=>1,
-    #     # "main_region"=>{"name"=>"kanto", "url"=>"https://pokeapi.co/api/v2/region/1/"},
-    #     # "moves"=>[{"name"=>"pound", "url"=>"https://pokeapi.co/api/v2/move/1/"}...
-    #     # }
-
-    #     generation.each do |data|
-    #         P_Generation.new()
-    #     end
-    #     binding.pry
-    # end
 
    
     

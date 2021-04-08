@@ -11,27 +11,50 @@ class CLI
     end
 
     def greet(name)
-        puts "So #{name}, which generation of Pokemon or Pokemon moves would like to learn more about.There are currently 8 Pokemon Generations, please enter integer 1-8 for the corresponding generation. If you need to leave at any time, enter 'e' to exit" 
+        puts "So #{name}, which generation of Pokemon or Pokemon moves would like to learn more about. There are currently 8 Pokemon Generations:"
+        API.get_generation
         
         display_generation
-
+        
+        puts "please enter integer 1-8 for the corresponding generation. 
+        If you need to leave at any time, enter 'e' to exit" 
+        API.get_generationx(input)  
+        
+        selected_generation
         input = user_input
-        API.get_generationx(input)
-        # selected_generation
-        # generation_menu
     end
 
     def display_generation
+        # binding.pry
         P_Generation.all.each.with_index(1) do |generation, index|
-            puts "#{index}. #{generation}"
+            puts "#{index}. #{generation.name}"
         end
     end
 
-    # def greet(name)
-    #     puts "So #{name}, do you have a favorite generation of Pokemon?
-    #      Please enter 'yes' or 'no'. If you need to leave, enter 'e' to exit" 
-    #     generation_menu
-    # end
+     def selected_generation 
+
+        selection = user_input
+        if selection == "1" || "2" || "3" || "4" || "5" || "6" || "7" || "8"
+            
+        elsif selection == "e"
+            goodbye
+        else 
+            invalid2
+        end
+    end
+
+
+    def goodbye
+        puts "You must be busy to be leaving us so soon, come back and visit us again anytime! "
+    end
+
+    
+    def invalid
+        puts "There are currently only 8 generations of Pokemon, 
+        please enter the integer 1 - 8 to select the corresponding generation."
+        select_generation
+    end
+
 
     # def generation_menu
     #     selection = user_input
@@ -46,7 +69,7 @@ class CLI
     #     end
     # end
 
-    # def invalid
+    # def invalid2
     #     puts "Your answer seems to be too ambiguous understand, please only enter yes or no"
     #     # generation_menu
     # end
@@ -77,28 +100,10 @@ class CLI
     #     end
 
 
-    # def selected_generation 
-
-    #     selection = user_input
-    #     if selection == "1" || "2" || "3" || "4" || "5" || "6" || "7" || "8"
-    #         print_generation_data    
-    #     elsif selection == "e"
-    #         goodbye
-    #     else 
-    #         invalid2
-    #     end
-    # end
-
-    # def goodbye
-    #     puts "You must be busy to be leaving us so soon, come back and visit us again anytime! "
-    # end
+   
+  
 
 
-    #     def invalid2
-    #         puts "There are currently only 8 generations of Pokemon, 
-    #         please enter the integer 1 - 8 to select the corresponding generation."
-    #         select_generation
-    #     end
 
         # def print_generation_data
             
@@ -113,7 +118,7 @@ class CLI
 
         # end
 
-        # def goodbye
+        # def goodbye2
         #     puts "We hope you have become more familiar with the world of Pokemon, come back and visit us again soon! "
         # end
        

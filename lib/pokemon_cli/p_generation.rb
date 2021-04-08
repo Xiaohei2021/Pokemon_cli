@@ -1,10 +1,10 @@
 class P_Generation
     @@all = []
-    attr_accessor :generation
+    attr_accessor :name
    
-    def initialize(generaration) 
-       @generation = generation
-        save
+    def initialize(name)
+        @name = name 
+          save
     end
 
     def save
