@@ -1,13 +1,11 @@
 class Generation_Data 
     @@all = []
 
-    attr_accessor :id, :moves, :pokemon_species
+    attr_accessor :name
     
-    def initialize(data_hash) # abilities, pokemon_species, version_groups
-        data_hash.each do |key, value|
-            self.send("#{key}=", value) if self.respond_to?("#{key}=")
-        end
-        # @abilities = abilities
+    def initialize(name) # abilities, pokemon_species, version_groups
+       
+        @name = name
         # @pokemon= pokemon_species
         # @versions= version_groups
         save

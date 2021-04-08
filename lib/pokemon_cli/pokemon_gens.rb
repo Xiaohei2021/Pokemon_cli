@@ -1,4 +1,4 @@
-class P_Generation
+class Pokemon_Gens
     @@all = []
     attr_accessor :name
    
