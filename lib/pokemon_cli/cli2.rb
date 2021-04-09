@@ -1,4 +1,6 @@
-class CLI2
+class CLI2 < Pokeapi
+
+    super
 
     puts `clear`
     def start
@@ -55,6 +57,21 @@ class CLI2
         Generation_Data.all.each.with_index(1) do |data, index|
             puts "#{index}. #{data.name}"   
         end
-
+        branch_menu
     end
+
+    def branch_menu
+        
+        puts "This is all the pokemone in this generation. Would you like to go back to the Generation selection Menu and learn about a different Pokemon generation? 
+            press 'y' to rettunr to the poke generation menu, 'n' to exit the program."
+        
+            input = user_input
+            if input == "y"
+                get_pokemon
+            elsif  input == "n"   
+               goodbye
+            else 
+                invalid
+            end
+        end
 end
