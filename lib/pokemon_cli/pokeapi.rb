@@ -296,7 +296,6 @@ def self.title_frame3
  end
 
  def self.show_title
-   system 'clear'
    self.title_shinning
  end
 

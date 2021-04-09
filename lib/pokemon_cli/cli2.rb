@@ -1,9 +1,8 @@
-class CLI2 < Pokeapi
-
-    super
+class CLI2 
 
     puts `clear`
     def start
+        Pokeapi_title.show_title
         puts "Greetings and welcome to the all knowing Pokemon database, Pokeapi! Who do we owe the pleasure of meeting today (AKA please enter your name to get started)?"
             input = user_input
             greet(input) 
@@ -62,12 +61,13 @@ class CLI2 < Pokeapi
 
     def branch_menu
         
-        puts "This is all the pokemone in this generation. Would you like to go back to the Generation selection Menu and learn about a different Pokemon generation? 
-            press 'y' to rettunr to the poke generation menu, 'n' to exit the program."
+        puts 
+        "This is all the pokemons in this generation. Would you like to go back to the Generation selection Menu and learn about a Pokemon in a different generation? 
+        Enter 'y' to rettunr to the Poke generation menu, 'n' to exit the program."
         
             input = user_input
             if input == "y"
-                get_pokemon
+                display_generations
             elsif  input == "n"   
                goodbye
             else 
