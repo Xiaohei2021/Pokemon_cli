@@ -6,4 +6,5 @@ require_relative '../lib/environment.rb'
 # API.get_generation
 # API.get_generationx(input)
 # CLI2.new.start
-Pichu.go
+# Pichu.go
+Pokeapi_title.show_title
