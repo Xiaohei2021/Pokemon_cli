@@ -2,6 +2,8 @@
 
 require_relative '../lib/environment.rb'
 
-CLI.new.start
+# CLI.new.start
 # API.get_generation
 # API.get_generationx(input)
+# CLI2.new.start
+Pichu.go
