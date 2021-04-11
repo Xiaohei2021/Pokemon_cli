@@ -7,10 +7,7 @@ class Pokemons
         data_hash.each do |key, value|
             self.send("#{key}=", value) if self.respond_to?("#{key}=")
         end     
-        # @name =  pokemon_species
-        # @dex_entry = national_dex_entry_number
-        # @egg_group = egg_groups
-        # @growth = growth_rate
+    
     end
 
     def save

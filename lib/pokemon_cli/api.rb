@@ -22,37 +22,41 @@ class API
 
     end
 
-    def self.get_generationx(input)
-        x = input
-        response = RestClient.get ("https://pokeapi.co/api/v2/generation/#{x}/")
-        generation_data = JSON.parse(response)["pokemon_species"]
-            generation_data.each do |data|
-
-                Generation_Data.new(data["name"])
+    def self.get_generation1
+        response = RestClient.get ("https://pokeapi.co/api/v2/generation/1/")
+        generation_data = JSON.parse(response)
+        # "moves","pokemon_species","version_groups"
+        binding.pry
+        generation_data.each do |data|
+                Generation_Data.new(data["moves"],["pokemon_species"],["version_groups"])
             end
-        # binding.pry
-        # generation_data = giant hash 
-        # {"abilities"=>[],
-        # "id"=>1,
-        # "main_region"=>{"name"=>"kanto", "url"=>"https://pokeapi.co/api/v2/region/1/"},
-        # "moves"=>[{"name"=>"pound", "url"=>"https://pokeapi.co/api/v2/move/1/"}...
-        # }
+        
     end
 
-   
-    
-        # jumbled thought process code
-        # rev_data = generation.select do |key, hash|
-        #     key == "moves" || "pokemon_species" || ""
 
+    # def self.get_generationx(input)
+    #     x = input
+    #     response = RestClient.get ("https://pokeapi.co/api/v2/generation/#{x}/")
+    #     generation_data = JSON.parse(response)["pokemon_species"]
+    #     binding.pry
+    #     # generation_data.each do |data|
+             
+    #     #         Generation_Data.new(data["name"])
+    #         # end
+        
+    #     # generation_data = giant hash 
+    #     # {"abilities"=>[],
+    #     # "id"=>1,
+    #     # "main_region"=>{"name"=>"kanto", "url"=>"https://pokeapi.co/api/v2/region/1/"},
+    #     # "moves"=>[{"name"=>"pound", "url"=>"https://pokeapi.co/api/v2/move/1/"}...
+    #     # }
+    # end
 
-
-
-        # def self.get_pokemon_moves()
-        #     x = input
-        #     response = RestClient.get ("https://pokeapi.co/api/v2/generation/#{x}/")
-        #     generation = JSON.parse(response)
-        # end
+    # def self.get_pokemon_moves()
+    #     x = input
+    #     response = RestClient.get ("https://pokeapi.co/api/v2/generation/#{x}/")
+    #     generation = JSON.parse(response)
+    # end      
 
 
         # def self.get_pokemon 

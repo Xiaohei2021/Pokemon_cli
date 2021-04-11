@@ -1,4 +1,4 @@
-class CLI2 
+class CLI3 
 
     puts `clear`
     def start
@@ -25,10 +25,10 @@ class CLI2
             puts "#{index}. #{generation.name}"
         end
         
-        get_pokemon
+        get_pokemon_generation
     end
     
-    def get_pokemon
+    def get_pokemon_generation
         puts "Please enter integer 1-8 to see the Pokemon in the corresponding generation.  If you need to leave at any time, enter 'e' to exit" 
        
         input = user_input
@@ -53,14 +53,30 @@ class CLI2
 
     def print_generation_data
             # binding.pry
+
+        puts "This is all the Pokemon moves, Pokemons, and Pokemon game versions for this generation. Which Pokemon move or Pokemon would you like to learn more about from this generation?"
         Generation_Data.all.each.with_index(1) do |data, index|
             puts "#{index}. #{data.name}"   
         end
-        branch_menu
+        select_generation_data
+    end
+
+    def select_generation_data
+        
+        # branch_menu
+
+    end
+
+    def get_pokemon
+ 
+    end
+
+    def get_pokemon_moves
+    
     end
 
     def branch_menu
-        puts "This is all the pokemons in this generation. Would you like to go back to the Generation selection Menu and learn about a Pokemon in a different generation? Enter 'y' to rettunr to the Poke generation menu, 'n' to exit the program."
+        puts "This is all the Pokemon moves, Pokemons, and Pokemon game versions for this generation. Would you like to go back to the Generation selection Menu and learn about a Pokemon move or Pokemon in a different generation? Enter 'y' to rettunr to the Poke generation menu, 'n' to exit the program."
         
             input = user_input
             if input == "y"
@@ -71,4 +87,7 @@ class CLI2
                 invalid
             end
         end
+
+    
+
 end

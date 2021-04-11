@@ -3,11 +3,10 @@ class Generation_Data
 
     attr_accessor :name
     
-    def initialize(name) # abilities, pokemon_species, version_groups
-       
-        @name = name
-        # @pokemon= pokemon_species
-        # @versions= version_groups
+    def initialize(moves, pokemon_species, version_groups) # moves, pokemon_species, version_groups
+        @moves = moves
+        @pokemon= pokemon_species
+        @versions= version_groups
         save
     end
     
@@ -18,10 +17,6 @@ class Generation_Data
     def self.all
         @@all
     end
-    
-    # def self.find_by_selection()
-    #     self.all.detect
-    # end
     
     
 end
