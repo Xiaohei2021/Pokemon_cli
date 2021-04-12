@@ -10,5 +10,4 @@ gem "json"
 gem "rest-client"
 gem "require_all"
 gem "colorize"
-gem "mini_magick"
-gem "awesome_print"
+

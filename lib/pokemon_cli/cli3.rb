@@ -39,7 +39,8 @@ class CLI3
     end
 
     def display_generations_moves
-        
+        Pokemon_Gens.all.clear
+        # binding.pry
         API.get_generation
         puts "which generation of Pokemon moves would like to learn more about. There are currently 8 Pokemon Generations."       
    
@@ -50,8 +51,9 @@ class CLI3
     end
 
     def display_generations_pokemon
-       
-        puts "which generation of Pokemon or would like to learn more about. There are currently 8 Pokemon Generations." 
+        Pokemon_Gens.all.clear
+
+        puts "which generation of Pokemon or would like to lear1n more about. There are currently 8 Pokemon Generations." 
         API.get_generation
         
         Pokemon_Gens.all.each.with_index(1) do |generation, index|
@@ -95,6 +97,7 @@ class CLI3
         Pokemon_Moves.all.each.with_index(1) do |moves, index|
             puts "#{index}. #{moves.name}"
         end
+       
         branch_menu
     end
 
@@ -107,10 +110,11 @@ class CLI3
     end
 
     def branch_menu
-        puts "This is all the Pokemon moves, Pokemons, and Pokemon game versions for this generation. Would you like to go back to the Generation selection Menu and learn about a Pokemon move or Pokemon in a different generation? Enter 'y' to rettunr to the Poke generation menu, 'n' to exit the program."
+        puts "This is all the Pokemon moves/Pokemons for this generation. Would you like to go back to the Generation selection Menu and learn about a Pokemon move or Pokemon in a different generation? Enter 'y' to return to the Poke generation menu, 'n' to exit the program."
         
             input = user_input
             if input == "y"
+                
                 selection_menu
             elsif  input == "n"   
                goodbye
@@ -133,8 +137,9 @@ class CLI3
             selection_menu
         end
 
+end
 
-    # def print_generation_data
+# def print_generation_data
 
     #     puts "The following data are available for this generation:
     #         1. Pokemon moves
@@ -191,5 +196,3 @@ class CLI3
 
     # end
 
-
-end
