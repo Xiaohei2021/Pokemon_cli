@@ -15,55 +15,50 @@ class CLI3
 
     def greet(name)
         puts `clear`
-        puts "So #{name}, would you like to know more about Pokemon or Pokemon moves? Please enter 1 to learn about pokemons or 2  to learn about pokemon moves."  
+        puts "So #{name}, would you like to know more about Pokemon or Pokemon moves? Please enter 2 to learn about pokemons or 3  to learn about pokemon moves."  
         selection_menu
     end
 
     def selection_menu
        
         puts"
-        1. I want to learn more about different Pokemons.
-        2. I want to learn more about different Pokemon Moves.
-        3. I want to exit the program."
-
+        1. I want to exit the program.
+        2. I want to learn more about different Pokemons.
+        3. I want to learn more about different Pokemon Moves."
+  
         input = user_input
         if input == "1" 
-            display_generations_moves
+            goodbye          
         elsif input == "2"
             display_generations_pokemon
         elsif input == "3"
-            goodbye
+            display_generations_moves
         else
             invalid3
         end
-
-    end
-        
-    def invalid3
-        puts "Please only enter the integer 1 or 2, or 'e' to exit the program"    
-        selection_menu
     end
 
     def display_generations_moves
-        puts "which generation of Pokemon or Pokemon moves would like to learn more about. There are currently 8 Pokemon Generations." 
-         API.get_generation
-        # binding.pry
+        
+        API.get_generation
+        puts "which generation of Pokemon moves would like to learn more about. There are currently 8 Pokemon Generations."       
+   
         Pokemon_Gens.all.each.with_index(1) do |generation, index|
             puts "#{index}. #{generation.name}"
         end
         get_pokemon_moves
     end
 
-    # def display_generations_pokemon
-    #     puts "which generation of Pokemon or Pokemon moves would like to learn more about. There are currently 8 Pokemon Generations." 
-    #      API.get_generation
-    #     # binding.pry
-    #     Pokemon_Gens.all.each.with_index(1) do |generation, index|
-    #         puts "#{index}. #{generation.name}"
-    #     end
+    def display_generations_pokemon
+       
+        puts "which generation of Pokemon or would like to learn more about. There are currently 8 Pokemon Generations." 
+        API.get_generation
         
-    #     get_pokemon_generation
-    # end
+        Pokemon_Gens.all.each.with_index(1) do |generation, index|
+            puts "#{index}. #{generation.name}"
+        end
+        get_pokemon
+    end
     
     def get_pokemon_moves
         
@@ -74,27 +69,40 @@ class CLI3
             goodbye
         elsif  input.to_i.between?(1,8)   
             API.get_pokemon_moves(input) 
-            print_generation_data
+            print_moves
         else 
             invalid
         end
     end
 
-    def goodbye
-        puts "You must be busy to be leaving us so soon, come back and visit us again anytime! "
+    def get_pokemon
+        
+        puts "Please enter integer 1-8 to see the Pokemon in the corresponding generation. If you need to leave at any time, enter 'e' to exit" 
+        
+        input = user_input
+        if input == "e"
+            goodbye
+        elsif  input.to_i.between?(1,8)   
+            API.get_pokemon(input) 
+            print_pokemons
+        else 
+            invalid
+        end
     end
 
-    def invalid
-        puts "There are currently only 8 generations of Pokemon, please enter the integers 1 - 8 to select the corresponding generation. Or enter 'e' anytime to exit"
-        get_pokemon
-    end
-
-    def print_generation_data
+    def print_moves
 
         Pokemon_Moves.all.each.with_index(1) do |moves, index|
             puts "#{index}. #{moves.name}"
         end
+        branch_menu
+    end
 
+    def print_pokemons
+
+        Pokemons.all.each.with_index(1) do |pokemon, index|
+            puts "#{index}. #{pokemon.name}"
+        end
         branch_menu
     end
 
@@ -110,6 +118,21 @@ class CLI3
                 invalid
             end
         end
+
+        def goodbye
+            puts "You must be busy to be leaving us so soon, come back and visit us again anytime! "
+        end
+    
+        def invalid
+            puts "There are currently only 8 generations of Pokemon, please enter the integers 1 - 8 to select the corresponding generation. Or enter 'e' anytime to exit"
+            get_pokemon
+        end
+
+        def invalid3
+            puts "Please only enter the integer 1 or 2, or 'e' to exit the program"    
+            selection_menu
+        end
+
 
     # def print_generation_data
 
@@ -133,9 +156,8 @@ class CLI3
     #         invalid
     #     end
         
-        
 
-        # select_generation_data
+    # select_generation_data
     # end
 
     # def select_generation_data
@@ -145,18 +167,7 @@ class CLI3
 
     # end
 
-    # def get_pokemon
-    #     puts "This is all the Pokemons for this generation! Would you like to go back to the Generation selection Menu and learn more about another Pokemon move or Pokemon in a different generation? Enter 'y' to rettunr to the Poke generation menu, 'n' to exit the program."
-    #     input = user_input
-        
-    #     if input == "y"
-    #         display_generations
-    #     elsif  input == "n"   
-    #        goodbye
-    #     else 
-    #         invalid
-    #     end
-    # end
+  
 
     # def get_pokemon_moves
     #     puts "This is all the Pokemon moves for this generation. Would you like to go back to the Generation selection Menu and learn about a Pokemon move or Pokemon in a different generation? Enter 'y' to rettunr to the Poke generation menu, 'n' to exit the program."
