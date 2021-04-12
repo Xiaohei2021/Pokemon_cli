@@ -1,22 +1,22 @@
-class Generation_Data 
-    @@all = []
-
-    attr_accessor :name
+# class Generation_Data 
     
-    def initialize(moves, pokemon_species, version_groups) # moves, pokemon_species, version_groups
-        @moves = moves
-        @pokemon= pokemon_species
-        @versions= version_groups
-        save
-    end
+#     @@all = []
+#     attr_reader :moves, :pokemon_species, :version_groups
     
-    def save
-        @@all << self
-    end
+#     def initialize(moves)
+#         @moves = moves
+#         # @pokemon= pokemon_species
+#         # @versions= version_groups
+#         save
+#     end
     
-    def self.all
-        @@all
-    end
+#     def save
+#         @@all << self
+#     end
+    
+#     def self.all
+#         @@all
+#     end
     
     
-end
+# end

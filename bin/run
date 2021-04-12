@@ -5,9 +5,10 @@ require_relative '../lib/environment.rb'
 # CLI.new.start
 # API.get_generation
 # API.get_generationx(input)
-API.get_generation1
+# API.get_generation1
+# API.get_pokemon_moves
 # CLI2.new.start
-# CLI3.new.start
+CLI3.new.start
 # Pichu.go
 # Pokeapi_title.show_title
 # Cute_Invalide_pic
