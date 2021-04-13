@@ -1,8 +1,5 @@
 # PokemonApi
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/pokemon_api`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Learn all the Pokemon and pokemon moves from all 8 Pokemon generations using simple CLI promprt. API datas are retrieved from Pokeapi.co/RESTful API.  Users can pick to either learn more about Pokemons or Pokemon moves at the begining, and then select the pokemon generation to see all the Pokemons or Pokemon moves from that particular generation.
 
 ## Installation
 
@@ -21,8 +18,7 @@ Or install it yourself as:
     $ gem install pokemon_api
 
 ## Usage
-
-TODO: Write usage instructions here
+Use the app to learn about all the Pokemon and Pokemons moves that are born from each generation. 
 
 ## Development
 

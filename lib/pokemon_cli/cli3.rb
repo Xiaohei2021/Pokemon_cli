@@ -3,7 +3,7 @@ class CLI3
 
     puts `clear`
     def start
-        # Pokeapi_title.show_title
+        Pokeapi_title.show_title
         welcome
     end
 
