@@ -3,7 +3,12 @@ class CLI3
 
     puts `clear`
     def start
-        Pokeapi_title.show_title
+        # Pokeapi_title.show_title
+        welcome
+    end
+
+    def welcome
+
         puts "Greetings and welcome to the all knowing Pokemon database, Pokeapi! Who do we owe the pleasure of meeting today (AKA please enter your name to get started)?"
             input = user_input
             greet(input) 
@@ -15,13 +20,15 @@ class CLI3
 
     def greet(name)
         puts `clear`
-        puts "So #{name}, would you like to know more about Pokemon or Pokemon moves? Please enter 2 to learn about pokemons or 3  to learn about pokemon moves."  
+        puts "So #{name}, What would you like to learn more about?\n\n"  
         selection_menu
+
     end
 
     def selection_menu
-       
-        puts"
+        
+        puts"Would you like to know more about Pokemon or Pokemon moves? Please enter 2 to learn about pokemons or 3  to learn about pokemon moves. 
+
         1. I want to exit the program.
         2. I want to learn more about different Pokemons.
         3. I want to learn more about different Pokemon Moves."
@@ -39,11 +46,11 @@ class CLI3
     end
 
     def display_generations_moves
+        
         Pokemon_Gens.all.clear
         # binding.pry
-        API.get_generation
         puts "which generation of Pokemon moves would like to learn more about. There are currently 8 Pokemon Generations."       
-   
+        API.get_generation
         Pokemon_Gens.all.each.with_index(1) do |generation, index|
             puts "#{index}. #{generation.name}"
         end
@@ -51,21 +58,21 @@ class CLI3
     end
 
     def display_generations_pokemon
-        Pokemon_Gens.all.clear
-
-        puts "which generation of Pokemon or would like to lear1n more about. There are currently 8 Pokemon Generations." 
-        API.get_generation
         
+        Pokemon_Gens.all.clear
+        puts `clear`
+        puts "There are currently 8 Pokemon Generations:" 
+        API.get_generation
         Pokemon_Gens.all.each.with_index(1) do |generation, index|
             puts "#{index}. #{generation.name}"
         end
+
         get_pokemon
     end
     
     def get_pokemon_moves
         
-        puts "Please enter integer 1-8 to see the Pokemon in the corresponding generation. If you need to leave at any time, enter 'e' to exit" 
-
+        puts "Which generation of Pokemon moves would you like to learn more about. If you need to leave at any time, enter 'e' to exit" 
         input = user_input
         if input == "e"
             goodbye
@@ -74,6 +81,7 @@ class CLI3
             Loading.load
             Pichu.go
             print_moves
+
         else 
             invalid
         end
@@ -101,7 +109,7 @@ class CLI3
         Pokemon_Moves.all.each.with_index(1) do |moves, index|
             puts "#{index}. #{moves.name}"
         end
-       
+        puts "This is all the Pokemon moves/Pokemons for this generation. Would you like to go back to the Generation selection Menu and learn about a Pokemon move or Pokemon in a different generation? Enter 'y' to return to the Poke generation menu, 'n' to exit the program."
         branch_menu
     end
 
@@ -111,7 +119,6 @@ class CLI3
             puts "#{index}. #{pokemon.name}"
         end
         puts "This is all the Pokemon moves/Pokemons for this generation. Would you like to go back to the Generation selection Menu and learn about a Pokemon move or Pokemon in a different generation? Enter 'y' to return to the Poke generation menu, 'n' to exit the program."
-
         branch_menu
     end
 
@@ -135,7 +142,7 @@ class CLI3
         end
     
         def invalid
-            puts "There are currently only 8 generations of Pokemon, please enter the integers 1 - 8 to select the corresponding generation. Or enter 'e' anytime to exit"
+            puts "There are currently only 8 generations of Pokemon."
             get_pokemon
         end
         
