@@ -298,7 +298,7 @@ def self.frame_three
 
 
   def self.animation
-    10.times do
+    3.times do
       Pichu.frame_one
       Pichu.frame_two
       Pichu.frame_three

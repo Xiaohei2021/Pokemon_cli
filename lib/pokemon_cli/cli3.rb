@@ -3,7 +3,7 @@ class CLI3
 
     puts `clear`
     def start
-        # Pokeapi_title.show_title
+        Pokeapi_title.show_title
         puts "Greetings and welcome to the all knowing Pokemon database, Pokeapi! Who do we owe the pleasure of meeting today (AKA please enter your name to get started)?"
             input = user_input
             greet(input) 
@@ -71,6 +71,8 @@ class CLI3
             goodbye
         elsif  input.to_i.between?(1,8)   
             API.get_pokemon_moves(input) 
+            Loading.load
+            Pichu.go
             print_moves
         else 
             invalid
@@ -86,6 +88,8 @@ class CLI3
             goodbye
         elsif  input.to_i.between?(1,8)   
             API.get_pokemon(input) 
+            Loading.load
+            Pichu.go
             print_pokemons
         else 
             invalid
@@ -106,21 +110,24 @@ class CLI3
         Pokemons.all.each.with_index(1) do |pokemon, index|
             puts "#{index}. #{pokemon.name}"
         end
+        puts "This is all the Pokemon moves/Pokemons for this generation. Would you like to go back to the Generation selection Menu and learn about a Pokemon move or Pokemon in a different generation? Enter 'y' to return to the Poke generation menu, 'n' to exit the program."
+
         branch_menu
     end
 
     def branch_menu
-        puts "This is all the Pokemon moves/Pokemons for this generation. Would you like to go back to the Generation selection Menu and learn about a Pokemon move or Pokemon in a different generation? Enter 'y' to return to the Poke generation menu, 'n' to exit the program."
-        
+
             input = user_input
             if input == "y"
-                
                 selection_menu
             elsif  input == "n"   
                goodbye
+               Goodbye.bye
             else 
-                invalid
+                puts `clear`
+                invalid2
             end
+    
         end
 
         def goodbye
@@ -130,6 +137,11 @@ class CLI3
         def invalid
             puts "There are currently only 8 generations of Pokemon, please enter the integers 1 - 8 to select the corresponding generation. Or enter 'e' anytime to exit"
             get_pokemon
+        end
+        
+        def invalid2
+            puts "Please only enter 'y' to stay in the program or 'n' to exit the program." 
+            branch_menu
         end
 
         def invalid3

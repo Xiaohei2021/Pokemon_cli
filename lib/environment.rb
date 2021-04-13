@@ -5,7 +5,7 @@ require "pry"
 require 'colorize'
 require 'colorized_string'
 require "bundler"
-require "awesome_print"
+
 
 Bundler.require
 
