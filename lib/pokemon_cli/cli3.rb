@@ -50,7 +50,7 @@ class CLI3
         Pokemon_Gens.all.clear
         # binding.pry
         puts "which generation of Pokemon moves would like to learn more about. There are currently 8 Pokemon Generations."       
-        API.get_generation
+        API.get_generations
         Pokemon_Gens.all.each.with_index(1) do |generation, index|
             puts "#{index}. #{generation.name}"
         end
@@ -62,7 +62,7 @@ class CLI3
         Pokemon_Gens.all.clear
         puts `clear`
         puts "There are currently 8 Pokemon Generations:" 
-        API.get_generation
+        API.get_generations
         Pokemon_Gens.all.each.with_index(1) do |generation, index|
             puts "#{index}. #{generation.name}"
         end
@@ -152,7 +152,7 @@ class CLI3
         end
 
         def invalid3
-            puts "Please only enter the integer 1 or 2, or 'e' to exit the program"    
+            puts "Please only enter the integer 2 or 3, or '1' to exit the program"    
             selection_menu
         end
 
